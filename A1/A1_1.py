@@ -1,7 +1,7 @@
 # Trabalho 1 - INE5413
 # Pedro Augusto Costa (19103248)
 # Questão 1 
-
+# Teste
 import sys
 
 class Graph():  #geração de grafos por dicionarios.
