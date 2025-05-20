@@ -3,7 +3,8 @@
 # Lucas Gusmão Valduga (21103505)
 # Questão 1
 
-from Q_Representacao import Graph
+from A1_1 import Graph
+import sys
 
 def ComponentesFortementeConexas(graph: Graph):
     #s = graph.GetIndex(list(graph.adjList)[0])
@@ -139,7 +140,8 @@ def partition(alist,first,last):
 
 if __name__ == '__main__':
     g = Graph()
-    g.Read('dirigido2.txt')
+    terminalEntry = sys.argv
+    g.Read(terminalEntry[1])
     ComponentesFortementeConexas(g)
 
 # def DFS2(graph: Graph):

@@ -3,8 +3,8 @@
 # Lucas Gusmão Valduga (21103505)
 # Questão 2
 
-from Q_Representacao import Graph
-
+from A1_1 import Graph
+import sys
 
 def OrdenacaoTopologica(graph: Graph) -> list:
     C = []  # Vértices visitados
@@ -42,10 +42,11 @@ def dfsVisitOT(graph: Graph, v: int, C: list, T: list, F: list, time: int, O: li
 
 if __name__ == "__main__":
     g = Graph()
-    g.Read("manha.net")
+    terminalEntry = sys.argv
+    g.Read(terminalEntry[1])
     O = OrdenacaoTopologica(g)
 
     for vertex in range(len(O)):
         print(f'{O[vertex]}', end='')
         if vertex < len(O) - 1:
-            print(' -> ', end='')
+            print(' , ', end='')

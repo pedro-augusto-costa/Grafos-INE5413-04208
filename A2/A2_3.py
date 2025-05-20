@@ -3,7 +3,8 @@
 # Lucas Gusmão Valduga (21103505)
 # Questão 3
 
-from Q_Representacao import Graph
+from A1_1 import Graph
+import sys
 
 def Prim(graph: Graph):
     vertices = graph.GetVerticesQuantity()
@@ -41,17 +42,14 @@ def Prim(graph: Graph):
                 Ev[(graph.GetIndex(uVert)*2)-1] = [uVert, neighbor]
                 Av[graph.GetIndex(neighbor)-1] = u
                 Kv[graph.GetIndex(neighbor)-1] = weight
-        # print("Kv: ", Kv)
-        # print("Av: ", Av)
-        # print("Qv: ", Qv)
-        # print("Ev: ", Ev)
 
         sumKv = sum(Kv)
     return sumKv, Av
 
 if __name__ == '__main__':
     g = Graph()
-    g.Read('agm_tiny.txt')
+    terminalEntry = sys.argv
+    g.Read(terminalEntry[1])
     sum, tree = Prim(g)
     print(sum)
     resTree = []
