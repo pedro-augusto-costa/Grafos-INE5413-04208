@@ -64,11 +64,6 @@ def DFS(graph: Graph, s: int, Ct: list,
         trans: bool, Cv: list, Iv: list, Fv: list):
     tempo = 0
     tempo, Fv, Iv, Cv = DFS_visit(graph, Cv, tempo, Iv, Fv, s, trans, Ct)
-    # print("Fv: ", Fv)
-    # print("Iv: ", Iv)
-    # print("Cv: ", Cv)
-    # print("Ct: ", Ct)
-    # print("")
     return Ct, Cv, Iv, Fv
 
 def DFS_visit(graph: Graph, Cv: list, tempo: int, 
@@ -82,9 +77,6 @@ def DFS_visit(graph: Graph, Cv: list, tempo: int,
         neighbors = graph.GetNeighborhoodTrans(graph.GetLabel(s))
     else:
         neighbors = graph.GetNeighborhood(graph.GetLabel(s))
-    # print(f'visinhos {s} :  {graph.GetNeighborhood(graph.GetLabel(s))} ')
-    # if not(graph.GetNeighborhood(graph.GetLabel(s))):
-    #     print("a")
     for vert in neighbors:
         vert = g.GetIndex(vert)
         if Cv[vert-1] == False and not(trans):
@@ -143,35 +135,3 @@ if __name__ == '__main__':
     terminalEntry = sys.argv
     g.Read(terminalEntry[1])
     ComponentesFortementeConexas(g)
-
-# def DFS2(graph: Graph):
-#     Cv = [] # Vertices visitados
-#     Iv = [] # Tempo
-#     Av = [] # Antecessor do vertice no caminho definido a partir de (s)
-    
-#     s = graph.GetIndex(list(graph.adjList)[0])
-#     vertices = graph.GetVerticesQuantity()
-#     # Configurando todos os vértices
-#     for _ in range(vertices):
-#         Cv.append(False)
-#         Iv.append(float('inf'))
-#         Av.append(None)
-    
-#     Cv[s-1] = True
-#     S = [] #pilha
-#     tempo = 0
-#     S.append(s)
-#     while len(S) != 0:
-#         tempo = tempo + 1
-#         u = S.pop()
-#         Iv[u-1] = tempo
-#         for vert in g.GetNeighborhood(g.GetLabel(u)):
-#             vert = g.GetIndex(vert)
-#             if Cv[vert-1] == False:
-#                 Cv[vert-1] = True
-#                 Av[vert-1] = u
-#                 S.append(vert)
-        
-#     print("Iv2: ", Iv)
-#     print("Av2: ", Av)
-#     print("Cv2: ", Cv)
