@@ -3,7 +3,8 @@
 # Lucas Gusmão Valduga (21103505)
 # Questão 3
 
-from Representacao import Graph
+from A1_1 import Graph
+import sys
 
 def welshPowell(g: Graph):
     V = []
@@ -49,10 +50,9 @@ def welshPowell(g: Graph):
 
 if __name__ == '__main__':
     g = Graph()
-    g.Read('cor3.net')
+    terminalEntry = sys.argv
+    g.Read(terminalEntry[1])
     color, colors = welshPowell(g)
-
-    print("Quantidade da coloração mínima: ", color)
-    print("Cores em cada vértice: ")
-    color_list_str = ', '.join(f'{i+1}: {colors[i]}' for i in range(len(colors)))
+    print(color)
+    color_list_str = ', '.join(f'{colors[i]}' for i in range(len(colors)))
     print(color_list_str)

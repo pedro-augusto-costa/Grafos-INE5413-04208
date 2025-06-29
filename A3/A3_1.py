@@ -3,8 +3,8 @@
 # Lucas Gusmão Valduga (21103505)
 # Questão 1 
 
-# from time import sleep
-from Representacao import Graph
+from A1_1 import Graph
+import sys
 
 def BFS_adapted(g: Graph, parent: list, quantityV: int) -> bool:
     V = [False]*quantityV
@@ -69,7 +69,6 @@ def edmondsKarp(g: Graph):
 
 if __name__ == '__main__':
     g = Graph()
-    g.Read('fluxo_maximo_aula.net')
-    #print(g.GetIndex("t"))
-    #parent = [-1]*g.GetVerticesQuantity()
-    print("Fluxo Máximo é: ", edmondsKarp(g))
+    terminalEntry = sys.argv
+    g.Read(terminalEntry[1])
+    print(edmondsKarp(g))
